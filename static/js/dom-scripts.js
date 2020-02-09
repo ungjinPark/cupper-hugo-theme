@@ -104,7 +104,8 @@
     el.style.cssText = prop + value;
     return mStyle[property];
   }
-
+  
+  var themeEnvChecker = window.matchMedia('(prefers-color-scheme:dark)').matches;  
   var checkbox = document.getElementById('themer');
   var inverter = document.getElementById('inverter');
 
@@ -112,16 +113,17 @@
     checkbox.parentNode.hidden = true;
     return;
   }
+  
+  if(){}
 
-  function darkTheme(media) {
+  function darkTheme(media){
     inverter.setAttribute('media', media);
     inverter.textContent = inverter.textContent.trim();
     localStorage.setItem('darkTheme', media);
   }
 
   checkbox.addEventListener('change', function () {
-    darkTheme(this.checked ? 'screen' : 'none');
-  });
+    darkTheme(this.checked ? (!themeEnvChecker ? 'screen' : 'none') : (themeEnvChecker ? 'none' : 'screen'));
 
   window.addEventListener('DOMContentLoaded', function () {
     if ('filter' in document.body.style) {

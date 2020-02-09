@@ -665,7 +665,7 @@ pre[class*=language-] code * {
     margin: 0;
     padding: 1.5rem 0 0.75rem;
 }
-@media screen {
+@media invert {
     .expandable-section + .expandable-section {
         margin-top: 0;
         border-top: 0;
